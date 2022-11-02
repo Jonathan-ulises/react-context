@@ -32,7 +32,10 @@ const UserState = (props: PropsUsrState) => {
     console.log('dalist => ', res.data.data)
     dispatch({
       type: ACTION_USER.GET_USERS,
-      payload: res.data.data
+      payload: {
+        users: res.data.data,
+        selectedUser: null
+      }
     })
   }
 
@@ -42,7 +45,10 @@ const UserState = (props: PropsUsrState) => {
     console.log(res)
     dispatch({
       type: ACTION_USER.GET_PROFILE,
-      payload: res.data.data
+      payload: {
+        users: [],
+        selectedUser: res.data.data
+      }
     })
   }
 

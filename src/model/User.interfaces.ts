@@ -17,3 +17,8 @@ export interface User {
     last_name:  string;
     avatar:     string;
 }
+
+export type ACTION<T> = {
+    type: string,
+    payload: T
+}

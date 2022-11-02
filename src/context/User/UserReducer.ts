@@ -2,7 +2,7 @@
 Este archivo implementa el Reducer para manipular el estado
 */
 
-import { InitStateUser, } from "../../model/User.interfaces";
+import { ACTION, InitStateUser, } from "../../model/User.interfaces";
 
 // import { InitStateUser } from "../../model/User.interfaces";
 import { ACTION_USER } from '../types';
@@ -13,24 +13,24 @@ import { ACTION_USER } from '../types';
 
 // export default UserReducer;
 
-export default (state: InitStateUser, action: any) => {
+export default (state: InitStateUser, action: ACTION<InitStateUser>) => {
     const {payload, type} = action;
     console.log('ACTION ', action)
     switch (type) {
         case ACTION_USER.GET_USERS:
             return {
                 ...state,
-                users: payload
+                users: payload.users
             };
         case ACTION_USER.GET_PROFILE:
             return {
                 ...state,
-                selectedUser: payload
+                selectedUser: payload.selectedUser
             };
         default:
             return {
                 ...state,
-                selectedUser: payload
+                selectedUser: payload.selectedUser
             };
     }
 }
